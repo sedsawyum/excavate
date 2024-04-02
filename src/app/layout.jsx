@@ -1,7 +1,9 @@
 import "@/styles/globals.css";
 import {Inter as FontSans} from "next/font/google"
 
-import { cn } from "@/lib/utils"
+import Header from "@/components/Header"
+
+import {cn} from "@/lib/utils"
 
 const fontSans = FontSans({
     subsets: ["latin"],
@@ -9,7 +11,7 @@ const fontSans = FontSans({
 })
 
 export const metadata = {
-    title: "Excavate",
+    title: "Search Platform",
     description: "New Generation Search Platform",
 };
 
@@ -19,7 +21,10 @@ export default function RootLayout({children}) {
         <body className={cn(
             "min-h-screen bg-background font-sans antialiased",
             fontSans.variable
-        )}>{children}</body>
+        )}>
+        {/*<Header/>*/}
+        {children}
+        </body>
         </html>
     );
 }
