@@ -46,18 +46,16 @@ export default function Home({searchParams}) {
         try {
             const normalizedSearchTerm = searchTerm.split(" ").join("+").toLowerCase()
             const requestUrl = `http://localhost:8000/api/swirl/search?q=${normalizedSearchTerm}`
-
             const response = await fetch(requestUrl, {
                 cache: "no-store",
                 headers: {
-                    Authorization: "Basic YWRtaW46bmV3c2FmZXBhc3N3b3Jk",
+                    Authorization: "Basic YWRtaW46cGFzc3dvcmQ=",
                     Accept: "*/*",
-                    "Cache-Control": "no-cache",
-                    "Access-Control-Allow-Origin": "*",
+                    // "Cache-Control": "no-cache",
                 }
             })
             const results = await response.json()
-
+            console.log(results)
             setResults(results)
         } catch (e) {
             console.error("Error", e)
